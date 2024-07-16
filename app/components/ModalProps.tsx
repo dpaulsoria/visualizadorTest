@@ -14,25 +14,29 @@ const Modal: React.FC<ModalProps> = ({ visible, province, clubs, onClose }) => {
   }
 
   return (
-    <div className="fixed bottom-10 right-10 bg-white p-6 rounded-lg shadow-lg z-50 max-h-50vh overflow-y-auto w-80">
-      <h2 className="text-2xl font-bold mb-4">{province}</h2>
-      <ul className="list-none p-0 m-0">
+    <div
+      style={{
+        position: 'fixed',
+        bottom: '10px',
+        right: '10px',
+        background: 'white',
+        padding: '10px',
+        borderRadius: '5px',
+        boxShadow: '0 0 10px rgba(0,0,0,0.5)',
+        zIndex: 1000,
+        maxHeight: '50vh',
+        overflowY: 'auto',
+      }}
+    >
+      <h2>{province}</h2>
+      <ul>
         {clubs.length > 0 ? (
-          clubs.map((club, index) => (
-            <li key={index} className="mb-2 p-2 bg-gray-100 rounded">
-              {club}
-            </li>
-          ))
+          clubs.map((club, index) => <li key={index}>{club}</li>)
         ) : (
-          <li className="text-gray-500">Sin información disponible</li>
+          <li>Sin información disponible</li>
         )}
       </ul>
-      <button
-        onClick={onClose}
-        className="mt-4 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-300"
-      >
-        Close
-      </button>
+      <button onClick={onClose}>Close</button>
     </div>
   );
 };
