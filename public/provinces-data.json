@@ -1,0 +1,203 @@
+{
+  "Azuay": [
+    "Paute F.C.",
+    "Estrella Roja",
+    "Liga de Cuenca",
+    "San Pedro del Pongo",
+    "Tecni Club",
+    "Aviced F.C.",
+    "Cruz del Vado",
+    "Baldor Bermeo Cabrera",
+    "Cuenca F.C.",
+    "D.P. El Cuartel",
+    "Atenas F.C.",
+    "Santa Ana S.C.",
+    "Santa Isabel F.C.",
+    "Cuenca Jrs."
+  ],
+  "Bolívar": [
+    "UniBolívar",
+    "San Luis",
+    "Primero de Mayo",
+    "Guaranda F.C.",
+    "C.D. Echeandía",
+    "Mineros S.C.",
+    "Juventud Minera"
+  ],
+  "Cañar": [
+    "Azogues S.C.",
+    "Udinense F.C.",
+    "C.F. Tigres",
+    "Junior F.C.",
+    "Canteros",
+    "Atlético Azogues",
+    "Triunfo City",
+    "Troncal FC",
+    "IDV Azogues"
+  ],
+  "Carchi": [
+    "Montúfar F.C.",
+    "At. Ciudad de Tulcán",
+    "Dunamis 04",
+    "Carchi SC"
+  ],
+  "Chimborazo": [
+    "Deportivo Guano",
+    "C.D. Darwin",
+    "Sonorama F.C.",
+    "Daquilema F.C.",
+    "Star Club",
+    "New SanFran S.C.",
+    "Alianza",
+    "Estudiantes de La Plata",
+    "C.D. Olmedo"
+  ],
+  "Cotopaxi": [
+    "Juvenil Junior Salcedo",
+    "Atlético Kin",
+    "Jonathan Arroyo",
+    "Alianza San Felipe",
+    "Panamericana SD",
+    "UTC",
+    "Deportivo Cotopaxi",
+    "Cotopaxi F.C.",
+    "Cruzeiro F.C.",
+    "Geinco Team",
+    "Santa Rita",
+    "C.D. La Unión"
+  ],
+  "El Oro": [
+    "Atlético Mineiro",
+    "Bonita Banana S.C.",
+    "Jogo Bonito Z",
+    "Bolívar F.C.",
+    "Cantera del Jubones",
+    "Parma F.C.",
+    "Huaquillas F.C.",
+    "Cantera Orense",
+    "Santos F.C.",
+    "Audaz Octubrino"
+  ],
+  "Esmeraldas": [
+    "Atlético Quinindé",
+    "22 de Julio F.C.",
+    "Atacames S.C.",
+    "Alianza del Pailón",
+    "Esmeraldas F.C.",
+    "Esmeraldas Petrolero",
+    "Atlético Valencia",
+    "5 de Agosto",
+    "Centro Juvenil Deportivo",
+    "Sagrado Corazón F.C."
+  ],
+  "Guayas": [
+    "Legión Amarilla F.C.",
+    "Guayas F.C.",
+    "Búhos ULVR F.C.",
+    "Naranja Mekánica",
+    "Guayaquil F.C.",
+    "Astillero F.C.",
+    "Filanbanco",
+    "ESPOL",
+    "Atlético Daule",
+    "Real Fortaleza F.C.",
+    "C.D. Everest",
+    "CBM Internacional",
+    "Atlético Wahlex",
+    "Balzar City",
+    "Panamá S.C.",
+    "Ferrocarril F.C.",
+    "Atlético Samborondón",
+    "La Familia F.C.",
+    "C.S. Patria",
+    "ADN F.C.",
+    "Estudiantes del Guayas",
+    "Atlético JBG",
+    "Gloria Saltos",
+    "Milagro F.C.",
+    "Giancarlo Ramos",
+    "León de Juda",
+    "Toreros F.C."
+  ],
+  "Imbabura": [
+    "Santa Fe S.C.",
+    "Deportivo Ibarra",
+    "F.C. Otavalo",
+    "Independiente Ibarra",
+    "La Cantera F.C."
+  ],
+  "Los Ríos": [
+    "Club Patria",
+    "Río Babahoyo",
+    "F.C. Insutec",
+    "Santa Rita",
+    "Deportivo Quevedo",
+    "San Camilo"
+  ],
+  "Morona Santiago": [
+    "Vicentino Dragons S.C.",
+    "Liga de Macas",
+    "Súper Deport Sucúa"
+  ],
+  "Orellana": [
+    "Orellanense F.C.",
+    "Anaconda F.C.",
+    "Sacha Petrolero",
+    "Deportivo Coca"
+  ],
+  "Pastaza": [
+    "Perla Amazónica",
+    "S.D. Tréboles",
+    "Puerto Valle F.C.",
+    "SRP Mera Pastaza",
+    "Ciudad Canela",
+    "La Cantera de Pastaza"
+  ],
+  "Pichincha": [
+    "Deportivo Meridiano",
+    "Miguel Iturralde",
+    "C.D. Aampetra",
+    "C.A. Vinotinto",
+    "Patrón Mejía",
+    "Independiente JFA"
+  ],
+  "Sante Elena": [
+    "Atlético Espartanos",
+    "Huancavilca S.C.",
+    "Dreamers F.C.",
+    "Peninsulares F.C.",
+    "Carlos Borbor Reyes",
+    "Sport Bilbao",
+    "Ferrocarril Oeste F.C.",
+    "Sante Elena S.C.",
+    "Barracuda F.C.",
+    "Esforzados y Valientes F.C.",
+    "Sante Elena Sumpa",
+    "Africando F.C.",
+    "Lobos Máster F.C."
+  ],
+  "Santo Domingo": [
+    "Deportivo Santo Domingo",
+    "S.D. Municipal",
+    "La Concordia S.C.",
+    "3 de Julio",
+    "Japan Auto F.C.",
+    "Colorados S.C."
+  ],
+  "Tungurahua": [
+    "Atlético Ambato",
+    "Baños Ciudad de Fuego",
+    "América F.C.",
+    "El Globo",
+    "K’chis F.C.",
+    "Dearing Tungurahua",
+    "Fortecalza S.C."
+  ],
+  "Zamora Chinchipe": [
+    "Ecuagenera S.C.",
+    "Los Ángeles de San Vicente de Caney",
+    "Primero de Mayo",
+    "Ciudad de Yantzaza",
+    "Charapanos F.C."
+  ]
+}
