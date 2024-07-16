@@ -4,7 +4,6 @@ import { MapContainer, TileLayer, GeoJSON } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { LatLngBounds } from 'leaflet';
 import { useEffect, useState } from 'react';
-import * as shapefile from 'shapefile';
 import { geodata, ClubsByProvince } from '../interface/types';
 
 const x = -1.8312;
@@ -31,29 +30,50 @@ const Map: React.FC = () => {
   const [provinceData, setProvinceData] = useState<ClubsByProvince>({});
 
   useEffect(() => {
-    fetch('/LIMITES-EC.zip')
-      .then((res) => res.arrayBuffer())
-      .then((buffer) => shapefile.open(buffer))
-      .then(async (source) => {
-        const features: any[] = [];
-        const log = async (result: any): Promise<void> => {
-          if (result.done) {
-            setGeoJsonData(features);
-            return Promise.resolve();
-          }
-          features.push(result.value);
-          const result_2 = await source.read();
-          return log(result_2);
-        };
-        const result = await source.read();
-        return log(result);
-      })
-      .catch((err) => console.error('Error loading shapefile:', err));
+    const loadGeoJson = async () => {
+      try {
+        const res = await fetch('/ecuador-provinces.geojson');
+        if (!res.ok) {
+          throw new Error('Failed to fetch GeoJSON');
+        }
+        const data = await res.json();
+        console.log('Raw GeoJSON data:', data);
+        if (data && data.features && data.features.length > 0) {
+          // Verificación adicional para asegurarse de que las coordenadas sean válidas
+          const validFeatures = data.features.filter((feature: any) => {
+            if (feature.geometry && feature.geometry.coordinates) {
+              return feature.geometry.coordinates.every(
+                (coord: any) => !isNaN(coord[0]) && !isNaN(coord[1])
+              );
+            }
+            return false;
+          });
+          console.log('Valid GeoJSON features:', validFeatures);
+          setGeoJsonData({ ...data, features: validFeatures });
+        } else {
+          console.error('GeoJSON data is invalid or empty');
+        }
+      } catch (err) {
+        console.error('Error loading GeoJSON:', err);
+      }
+    };
 
-    fetch('/provinces-data.json')
-      .then((res) => res.json())
-      .then((data) => setProvinceData(data))
-      .catch((err) => console.error('Error loading province data:', err));
+    const loadProvinceData = async () => {
+      try {
+        const res = await fetch('/provinces-data.json');
+        if (!res.ok) {
+          throw new Error('Failed to fetch province data');
+        }
+        const data = await res.json();
+        console.log('Province data:', data);
+        setProvinceData(data);
+      } catch (err) {
+        console.error('Error loading province data:', err);
+      }
+    };
+
+    loadGeoJson();
+    loadProvinceData();
   }, []);
 
   const onEachProvince = (province: geodata, layer: any) => {
@@ -77,9 +97,11 @@ const Map: React.FC = () => {
       style={{ height: height, width: width }}
     >
       <TileLayer url={mapUrl} attribution={attribution} />
-      {geoJsonData && (
-        <GeoJSON data={geoJsonData} onEachFeature={onEachProvince} />
-      )}
+      {geoJsonData &&
+        geoJsonData.features &&
+        geoJsonData.features.length > 0 && (
+          <GeoJSON data={geoJsonData} onEachFeature={onEachProvince} />
+        )}
     </MapContainer>
   );
 };
