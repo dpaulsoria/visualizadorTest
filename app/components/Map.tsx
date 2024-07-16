@@ -19,6 +19,7 @@ import shp from 'shpjs';
 import { Feature, Geometry, FeatureCollection } from 'geojson';
 import React from 'react';
 import Modal from './ModalProps';
+import { PathOptions } from 'leaflet';
 
 const shapefileUrls = ['geotest/gadm41_ECU_0.zip', 'geotest/gadm41_ECU_1.zip'];
 
@@ -114,8 +115,7 @@ const Map: React.FC = () => {
     });
   };
 
-  const style = (feature: Feature<Geometry, any>) => {
-    if (!feature) return {};
+  const style = (feature: Feature<Geometry, any>): PathOptions => {
     return {
       fillColor: getColor(feature.properties.NAME_1),
       weight: 2,
@@ -142,7 +142,7 @@ const Map: React.FC = () => {
           <GeoJSON
             data={geoJsonData}
             onEachFeature={onEachProvince}
-            style={style}
+            // style={style}
           />
         )}
       </MapContainer>
