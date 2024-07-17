@@ -53,18 +53,18 @@ const getColor = (province: string) => {
   return colors[province] || '#fff800'; // Color por defecto si no se encuentra la provincia
 };
 
-const defaultStyle = {
-  color: '#3388ff',
-  weight: 2,
-  opacity: 1,
-  fillOpacity: 0.2,
-};
-
-const selectedStyle = {
+const selectedStyle: PathOptions = {
   color: '#ff7800',
   weight: 2,
   opacity: 1,
   fillOpacity: 0.5,
+};
+
+const defaultStyle: PathOptions = {
+  color: '#3388ff',
+  weight: 2,
+  opacity: 1,
+  fillOpacity: 0.2,
 };
 
 const Map: React.FC = () => {
@@ -75,12 +75,19 @@ const Map: React.FC = () => {
   const [provinceData, setProvinceData] = useState<ClubsByProvince>({});
   const [selectedProvince, setSelectedProvince] = useState<string | null>(null);
   const [modalVisible, setModalVisible] = useState<boolean>(false);
-  const styleFeature = (feature: Feature<Geometry, any>) => {
-    if (feature.properties.NAME_1 === selectedProvince) {
-      return selectedStyle;
-    } else {
-      return defaultStyle;
+
+  const style = (feature: Feature<Geometry, any> | undefined): PathOptions => {
+    if (feature) {
+      return {
+        fillColor: getColor(feature.properties.NAME_1),
+        weight: 2,
+        opacity: 1,
+        color: 'white',
+        dashArray: '3',
+        fillOpacity: 0.7,
+      };
     }
+    return defaultStyle; // Retorna un estilo por defecto si feature es undefined
   };
   useEffect(() => {
     const loadGeoJson = async () => {
@@ -135,15 +142,14 @@ const Map: React.FC = () => {
     });
   };
 
-  const style = (feature: Feature<Geometry, any>): PathOptions => {
-    return {
-      fillColor: getColor(feature.properties.NAME_1),
-      weight: 2,
-      opacity: 1,
-      color: 'white',
-      dashArray: '3',
-      fillOpacity: 0.7,
-    };
+  const styleFeature = (
+    feature: Feature<Geometry, any> | undefined
+  ): PathOptions => {
+    if (feature && feature.properties.NAME_1 === selectedProvince) {
+      return selectedStyle;
+    } else {
+      return defaultStyle;
+    }
   };
 
   return (
