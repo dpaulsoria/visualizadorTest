@@ -53,6 +53,20 @@ const getColor = (province: string) => {
   return colors[province] || '#fff800'; // Color por defecto si no se encuentra la provincia
 };
 
+const defaultStyle = {
+  color: '#3388ff',
+  weight: 2,
+  opacity: 1,
+  fillOpacity: 0.2,
+};
+
+const selectedStyle = {
+  color: '#ff7800',
+  weight: 2,
+  opacity: 1,
+  fillOpacity: 0.5,
+};
+
 const Map: React.FC = () => {
   const [geoJsonData, setGeoJsonData] = useState<FeatureCollection<Geometry>>({
     type: 'FeatureCollection',
@@ -61,7 +75,13 @@ const Map: React.FC = () => {
   const [provinceData, setProvinceData] = useState<ClubsByProvince>({});
   const [selectedProvince, setSelectedProvince] = useState<string | null>(null);
   const [modalVisible, setModalVisible] = useState<boolean>(false);
-
+  const styleFeature = (feature: Feature<Geometry, any>) => {
+    if (feature.properties.NAME_1 === selectedProvince) {
+      return selectedStyle;
+    } else {
+      return defaultStyle;
+    }
+  };
   useEffect(() => {
     const loadGeoJson = async () => {
       try {
@@ -142,7 +162,7 @@ const Map: React.FC = () => {
           <GeoJSON
             data={geoJsonData}
             onEachFeature={onEachProvince}
-            // style={style}
+            style={styleFeature}
           />
         )}
       </MapContainer>

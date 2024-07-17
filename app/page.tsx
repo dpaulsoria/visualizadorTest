@@ -1,6 +1,7 @@
 // app/page.tsx
 import dynamic from 'next/dynamic';
 import { Metadata } from 'next';
+import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Mapa Interactivo de Ecuador',
